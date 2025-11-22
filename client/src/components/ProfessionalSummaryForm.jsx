@@ -11,6 +11,12 @@ const ProfessionalSummaryForm = ({ data, onChange, setResumeData }) => {
 
   const generateSummary = async () => {
     try {
+      // Validate that user has entered some text
+      if (!data || data.trim().length === 0) {
+        toast.error('Please write some text in the professional summary first');
+        return;
+      }
+
       setIsGenerating(true)
       const prompt = `enhance my professional summary ${data}`;
       const response = await api.post('/api/ai/enhance-pro-sum', {

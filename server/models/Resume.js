@@ -8,7 +8,7 @@ const ResumeSchema = new mongoose.Schema({
   accent_color: { type: String, default: "#3B82F6" },
   professional_summary: { type: String, default: "" },
   skills: [{ type: String }],
-  
+
   personal_info: {
     image: { type: String, default: "" },
     full_name: { type: String, default: "" },
@@ -20,38 +20,38 @@ const ResumeSchema = new mongoose.Schema({
     website: { type: String, default: "" }
   },
   experience: [
-  {
-    company: { type: String },
-    position: { type: String },
-    start_date: { type: String },
-    end_date: { type: String },
-    description: { type: String },
-    is_current: { type: Boolean, default: false }
-  }
-],
+    {
+      company: { type: String },
+      position: { type: String },
+      start_date: { type: String },
+      end_date: { type: String },
+      description: { type: String },
+      is_current: { type: Boolean, default: false }
+    }
+  ],
   project: [
-  {
-    name: { type: String },
-    type: { type: String },
-    description: { type: String },
-    
-  }
-],
-education: [
-  {
-    institution: { type: String },
-    degree: { type: String },
-    field: { type: String },
-    graduation_date: { type: String },
-    cgpa: { type: String },
-    
-  }
-],
+    {
+      name: { type: String },
+      type: { type: String },
+      description: { type: String },
+      url: { type: String },
+    }
+  ],
+  education: [
+    {
+      institution: { type: String },
+      degree: { type: String },
+      field: { type: String },
+      graduation_date: { type: String },
+      cgpa: { type: String },
+
+    }
+  ],
 
 
 
-}, {timestamps: true, minimize: false});
+}, { timestamps: true, minimize: false });
 
-const Resume = mongoose.model('Resume' , ResumeSchema)
+const Resume = mongoose.model('Resume', ResumeSchema)
 
 export default Resume;
